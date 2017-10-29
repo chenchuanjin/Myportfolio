@@ -1,0 +1,264 @@
+// ------------------------
+@import 'https://fonts.googleapis.com/css?family=Josefin+Sans|Lato';
+$bar-color: #EA5455;
+$secondary-color: #2D4059;
+// ------------------------
+
+/* ---------- *\
+     Basics
+\* ---------- */
+
+body,
+div,
+section,
+navigation,
+header,
+footer,
+article {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+.bg {
+  display: block;
+  position: fixed;
+  width: 100vw;
+  min-heigth: 100vh;
+  -webkit-filter: blur(20px);
+}
+
+.container {
+  position: relative;
+  min-width: 300px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  background: url('http://www.gregoryklein.fr/files/images/free_code_camp_portfolio_header.jpg') center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  box-shadow: 0 0 30px rgba(#000, 0.5);
+}
+
+section {
+  width: 100%;
+  padding: 80px 20px;
+  font-family: 'Josefin Sans';
+}
+
+#home {
+  min-height: 100vh;
+  color: white;
+  background-color: rgba($secondary-color, 0.3);
+}
+
+#projects {
+  background-color: #fff;
+}
+
+
+/* ---------- *\
+   Navigation
+\* ---------- */
+
+.navigation {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: $bar-color;
+  color: white;
+  h1 {
+    display: inline;
+    margin: 0 50px;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+  }
+  i {
+    margin: 0;
+    padding: 0;
+    display: block;
+    font-size: 0.3em;
+  }
+  ul {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 30px;
+    list-style: none;
+    line-height: 60px;
+    font-family: 'Josefin Sans';
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.menu-item {
+  display: inline-block;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.menu-item.selected {
+  background-color: lighten($bar-color, 7%);
+}
+
+
+/* ---------- *\
+      Home
+\* ---------- */
+
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta {
+  //margin-top: 80px;
+  font-family: 'Lato';
+  font-size: 3em;
+  text-align: center;
+  h2,
+  h3 {
+    margin: 0;
+  }
+  h3 {
+    font-size: 0.8em;
+  }
+  button {
+    margin-top: 30px;
+    padding: 5px 20px 5px 20px;
+    height: 50px;
+    background-color: transparent;
+    font-size: .25em;
+    color: white;
+    border: 2px solid white;
+    border-radius: 30px;
+    outline: none;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+
+/* ---------- *\
+     Projects
+\* ---------- */
+
+.projects-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.project-card {
+  position: relative;
+  width: 300px;
+  min-width: 300px;
+  height: 300px;
+  margin: 2px;
+  background-color: $secondary-color;
+  overflow: hidden;
+  p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    min-width: 60%;
+    max-width: 80%;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+    transition: 0.3s;
+    font-size: 1.5em;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+  }
+  &:hover {
+    cursor: pointer;
+    p {
+      transform: translate(-50%, -100%);
+      opacity: 1;
+    }
+    img {
+      opacity: 0.2;
+      transform: scale(1.1);
+    }
+  }
+  img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: center;
+    transform-origin: 50% 0;
+    transition: 0.3s;
+  }
+}
+
+
+/* ---------- *\
+     Contact
+\* ---------- */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 50vh;
+  max-height: 200px;
+  padding: 20px;
+  color: white;
+  font-size: 0.7em;
+  background-color: $bar-color;
+}
+
+.social {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  height: 150px;
+  font-size: 3em;
+  a:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+  }
+}
+
+
+/* ---------- *\
+   Responsive
+\* ---------- */
+
+@Media screen and (max-width: 600px) {
+  .navigation {
+    flex-direction: column;
+    height: 120px;
+  }
+  section {
+    padding-top: 140px;
+  }
+  .project-card {
+    p {
+      transform: translate(-50%, -100%);
+      opacity: 1;
+    }
+    img {
+      opacity: 0.4;
+    }
+  }
+}
